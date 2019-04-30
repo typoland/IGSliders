@@ -10,6 +10,8 @@
 		B2476D3B2276E6E600776352 /* IGSliders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2476D312276E6E600776352 /* IGSliders.framework */; };
 		B2476D402276E6E600776352 /* IGSlidersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2476D3F2276E6E600776352 /* IGSlidersTests.swift */; };
 		B2476D422276E6E600776352 /* IGSliders.h in Headers */ = {isa = PBXBuildFile; fileRef = B2476D342276E6E600776352 /* IGSliders.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B2476D9C22783A2900776352 /* IGSliders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2476D9B22783A2900776352 /* IGSliders.swift */; };
+		B2476DA222783D0200776352 /* IGSlidersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2476DA122783D0200776352 /* IGSlidersController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		B2476D3A2276E6E600776352 /* IGSlidersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IGSlidersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2476D3F2276E6E600776352 /* IGSlidersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGSlidersTests.swift; sourceTree = "<group>"; };
 		B2476D412276E6E600776352 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2476D9B22783A2900776352 /* IGSliders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IGSliders.swift; path = /Users/lukasz/Documents/XCode/TypoSpace/IGSliders/IGSliders/IGSliders.swift; sourceTree = "<absolute>"; };
+		B2476DA122783D0200776352 /* IGSlidersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGSlidersController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 			isa = PBXGroup;
 			children = (
 				B2476D342276E6E600776352 /* IGSliders.h */,
+				B2476D9B22783A2900776352 /* IGSliders.swift */,
+				B2476DA122783D0200776352 /* IGSlidersController.swift */,
 				B2476D352276E6E600776352 /* Info.plist */,
 			);
 			path = IGSliders;
@@ -194,6 +200,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2476DA222783D0200776352 /* IGSlidersController.swift in Sources */,
+				B2476D9C22783A2900776352 /* IGSliders.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +400,7 @@
 		B2476D492276E6E600776352 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3ASHMCMJEN;
@@ -410,6 +419,7 @@
 		B2476D4A2276E6E600776352 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3ASHMCMJEN;
