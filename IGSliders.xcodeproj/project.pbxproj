@@ -12,6 +12,9 @@
 		B2476D422276E6E600776352 /* IGSliders.h in Headers */ = {isa = PBXBuildFile; fileRef = B2476D342276E6E600776352 /* IGSliders.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2476D9C22783A2900776352 /* IGSliders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2476D9B22783A2900776352 /* IGSliders.swift */; };
 		B2476DA222783D0200776352 /* IGSlidersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2476DA122783D0200776352 /* IGSlidersController.swift */; };
+		B2476DB22279879900776352 /* IGEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2476DB12279879900776352 /* IGEditView.swift */; };
+		B2476DB422798D5800776352 /* IGEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2476DB322798D5800776352 /* IGEditView.xib */; };
+		B2476DB62279AACB00776352 /* IGSlidersController InsertViewInto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2476DB52279AACB00776352 /* IGSlidersController InsertViewInto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +36,9 @@
 		B2476D412276E6E600776352 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2476D9B22783A2900776352 /* IGSliders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IGSliders.swift; path = /Users/lukasz/Documents/XCode/TypoSpace/IGSliders/IGSliders/IGSliders.swift; sourceTree = "<absolute>"; };
 		B2476DA122783D0200776352 /* IGSlidersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGSlidersController.swift; sourceTree = "<group>"; };
+		B2476DB12279879900776352 /* IGEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGEditView.swift; sourceTree = "<group>"; };
+		B2476DB322798D5800776352 /* IGEditView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IGEditView.xib; sourceTree = "<group>"; };
+		B2476DB52279AACB00776352 /* IGSlidersController InsertViewInto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IGSlidersController InsertViewInto.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,10 +81,13 @@
 		B2476D332276E6E600776352 /* IGSliders */ = {
 			isa = PBXGroup;
 			children = (
+				B2476DA122783D0200776352 /* IGSlidersController.swift */,
+				B2476DB52279AACB00776352 /* IGSlidersController InsertViewInto.swift */,
+				B2476DB12279879900776352 /* IGEditView.swift */,
 				B2476D342276E6E600776352 /* IGSliders.h */,
 				B2476D9B22783A2900776352 /* IGSliders.swift */,
-				B2476DA122783D0200776352 /* IGSlidersController.swift */,
 				B2476D352276E6E600776352 /* Info.plist */,
+				B2476DB322798D5800776352 /* IGEditView.xib */,
 			);
 			path = IGSliders;
 			sourceTree = "<group>";
@@ -183,6 +192,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2476DB422798D5800776352 /* IGEditView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,8 +210,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2476DB22279879900776352 /* IGEditView.swift in Sources */,
 				B2476DA222783D0200776352 /* IGSlidersController.swift in Sources */,
 				B2476D9C22783A2900776352 /* IGSliders.swift in Sources */,
+				B2476DB62279AACB00776352 /* IGSlidersController InsertViewInto.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,13 +10,25 @@ import Foundation
 import AppKit
 
 
-class IGSlidersController: NSObject {
+public class IGSlidersController: NSViewController {
     
     @IBOutlet public weak var sliders:IGSliders!
     
+    init () {
+        
+        super.init(nibName: "IGEditView", bundle: Bundle.init(identifier: "com.typoland.IGSliders"))
+        print ("Init \(self.nibBundle?.description ?? "No Bundle")")
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(nibName: "IGEditView", bundle: Bundle.init(identifier: "com.typoland.IGSliders"))
+        print ("Init coder \(self.nibBundle?.description ?? "No Bundle")")
+    }
+    
+    
     @objc var axesNames: [String] {
         get {
-            print ("CONTROLLER getting axes names")
+            print ("CONTROLLER getting axes names \(view)")
             return sliders.axesNames
         }
         set {

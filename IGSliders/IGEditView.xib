@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="IGSlidersController" customModule="IGSliders" customModuleProvider="target">
+            <connections>
+                <outlet property="sliders" destination="8h3-oo-ZMw" id="iy9-8a-1xc"/>
+                <outlet property="view" destination="c22-O7-iKe" id="KZL-kx-O3d"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="223" height="272"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8h3-oo-ZMw" customClass="IGSliders" customModule="IGSliders" customModuleProvider="target">
+                    <rect key="frame" x="5" y="4" width="213" height="77"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </customView>
+                <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4jq-jq-Uqf">
+                    <rect key="frame" x="2" y="243" width="28" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" preferredEdge="maxX" selectedItem="5Pb-Wg-6YA" id="1AJ-t0-Uf5">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" size="15" name=".AppleSystemUIFontBlack"/>
+                        <menu key="menu" id="Px6-ps-KUj">
+                            <items>
+                                <menuItem title="Item 1" state="on" id="5Pb-Wg-6YA"/>
+                                <menuItem title="Item 2" id="iuU-j6-Ss2"/>
+                                <menuItem title="Item 3" id="Wvp-3H-WZy"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <binding destination="-2" name="contentValues" keyPath="axesNames" id="4lw-jF-lbn"/>
+                        <binding destination="-2" name="selectedIndex" keyPath="selectedAxisIndex" previousBinding="4lw-jF-lbn" id="RD0-Rx-FbC"/>
+                    </connections>
+                </popUpButton>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HWB-yB-p1L">
+                    <rect key="frame" x="167" y="244" width="24" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="roundTextured" title="Textured Rounded" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kUt-KL-6Qo">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="addAxis:" target="-2" id="XaX-HF-2Fb"/>
+                        <binding destination="-2" name="enabled" keyPath="canAddAxis" id="wCy-Ln-jqL"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tR7-Ie-4tI">
+                    <rect key="frame" x="195" y="244" width="24" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="roundTextured" title="Textured Rounded" bezelStyle="texturedRounded" image="NSRemoveTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="By4-8r-AGd">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="removeAxis:" target="-2" id="Lce-WE-SqQ"/>
+                        <binding destination="-2" name="enabled" keyPath="canRemoveAxis" id="gEK-52-Jxg"/>
+                    </connections>
+                </button>
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3iN-yv-Afq">
+                    <rect key="frame" x="34" y="245" width="129" height="22"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" focusRingType="none" title="Label" id="0qV-pM-bCI">
+                        <font key="font" metaFont="systemHeavy" size="15"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="editable" keyPath="canRemoveAxis" id="SjC-hL-rNX"/>
+                        <binding destination="-2" name="enabled" keyPath="canRemoveAxis" previousBinding="SjC-hL-rNX" id="Lhf-xk-jJq"/>
+                        <binding destination="-2" name="value" keyPath="selectedAxisName" id="V3k-dv-S2x">
+                            <dictionary key="options">
+                                <bool key="NSConditionallySetsEditable" value="YES"/>
+                                <bool key="NSConditionallySetsEnabled" value="YES"/>
+                                <bool key="NSValidatesImmediately" value="YES"/>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </textField>
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2xc-22-PDB">
+                    <rect key="frame" x="5" y="87" width="212" height="153"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fKV-Qc-zt2">
+                            <rect key="frame" x="0.0" y="139" width="59" height="11"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" controlSize="mini" lineBreakMode="clipping" title="Min." id="KF2-3W-4qv">
+                                <font key="font" metaFont="miniSystem"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OG8-JH-noY">
+                            <rect key="frame" x="44" y="139" width="124" height="11"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" controlSize="mini" lineBreakMode="clipping" alignment="center" title="Default" id="VQn-EZ-Dwb">
+                                <font key="font" metaFont="miniSystem"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8hS-bl-XJI">
+                            <rect key="frame" x="153" y="139" width="59" height="11"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" controlSize="mini" lineBreakMode="clipping" alignment="right" title="Max" id="EFA-6Z-NOz">
+                                <font key="font" metaFont="miniSystem"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s7C-b2-SDz">
+                            <rect key="frame" x="1" y="126" width="211" height="13"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <sliderCell key="cell" controlSize="mini" continuous="YES" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="I0S-tC-eiK"/>
+                            <connections>
+                                <binding destination="-2" name="maxValue" keyPath="selectedAxisUpperBound" id="Nn8-Fi-gl3"/>
+                                <binding destination="-2" name="minValue" keyPath="selectedAxisLowerBound" previousBinding="Nn8-Fi-gl3" id="qc7-dh-th6"/>
+                                <binding destination="-2" name="value" keyPath="selectedAxisDefaultValue" previousBinding="qc7-dh-th6" id="nUR-xW-HLJ"/>
+                            </connections>
+                        </slider>
+                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mDR-6c-Niy">
+                            <rect key="frame" x="0.0" y="113" width="49" height="14"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" focusRingType="none" alignment="left" title="Label" id="wUx-w0-wo7">
+                                <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="4lr-qt-2HV"/>
+                                <font key="font" metaFont="systemBold" size="11"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <connections>
+                                    <binding destination="-2" name="maxValue" keyPath="selectedAxisDefaultValue" id="TOk-hz-XOD"/>
+                                    <binding destination="-2" name="value" keyPath="selectedAxisLowerBound" previousBinding="TOk-hz-XOD" id="Z3C-zQ-bsr">
+                                        <dictionary key="options">
+                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                            <bool key="NSConditionallySetsEnabled" value="YES"/>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </textFieldCell>
+                            <connections>
+                                <binding destination="-2" name="maxValue" keyPath="selectedAxisDefaultValue" id="RFK-tl-jBO"/>
+                            </connections>
+                        </textField>
+                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OpH-eK-eg3">
+                            <rect key="frame" x="58" y="113" width="96" height="14"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" focusRingType="none" alignment="center" title="Label" id="1dz-cL-czw">
+                                <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="VZn-7e-NKd"/>
+                                <font key="font" metaFont="systemBold" size="11"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <connections>
+                                    <binding destination="-2" name="maxValue" keyPath="selectedAxisDefaultValue" id="H1P-Xi-Yzx"/>
+                                    <binding destination="-2" name="value" keyPath="selectedAxisLowerBound" previousBinding="H1P-Xi-Yzx" id="850-TQ-JY6">
+                                        <dictionary key="options">
+                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                            <bool key="NSConditionallySetsEnabled" value="YES"/>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </textFieldCell>
+                            <connections>
+                                <binding destination="-2" name="maxValue" keyPath="selectedAxisUpperBound" id="oE8-8q-hlJ"/>
+                                <binding destination="-2" name="minValue" keyPath="selectedAxisLowerBound" previousBinding="oE8-8q-hlJ" id="Ypp-3a-sT0"/>
+                                <binding destination="-2" name="value" keyPath="selectedAxisDefaultValue" previousBinding="Ypp-3a-sT0" id="UyU-QG-M7p"/>
+                            </connections>
+                        </textField>
+                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VBh-di-aF9">
+                            <rect key="frame" x="164" y="113" width="49" height="14"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" focusRingType="none" alignment="right" title="Label" id="Cjr-Sz-hqc">
+                                <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="Ph3-xG-2Og"/>
+                                <font key="font" metaFont="systemBold" size="11"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <connections>
+                                    <binding destination="-2" name="maxValue" keyPath="selectedAxisDefaultValue" id="kWj-to-jph"/>
+                                    <binding destination="-2" name="value" keyPath="selectedAxisLowerBound" previousBinding="kWj-to-jph" id="Sft-eo-STr">
+                                        <dictionary key="options">
+                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                            <bool key="NSConditionallySetsEnabled" value="YES"/>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </textFieldCell>
+                            <connections>
+                                <binding destination="-2" name="minValue" keyPath="selectedAxisDefaultValue" id="YJI-mb-WMD"/>
+                                <binding destination="-2" name="value" keyPath="selectedAxisUpperBound" previousBinding="YJI-mb-WMD" id="E9O-mo-kpt"/>
+                            </connections>
+                        </textField>
+                    </subviews>
+                    <connections>
+                        <binding destination="-2" name="hidden" keyPath="canRemoveAxis" id="mG5-52-Myv">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </customView>
+            </subviews>
+            <point key="canvasLocation" x="10.5" y="154"/>
+        </customView>
+        <userDefaultsController representsSharedInstance="YES" id="eWS-7V-1IN"/>
+    </objects>
+    <resources>
+        <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
+    </resources>
+</document>
