@@ -9,8 +9,8 @@
 import Foundation
 
 public extension IGSlidersController {
-    func insertViewInto(_ targetView:NSView) {
-        targetView.addSubview(self.view)
-        self.view.frame = NSMakeRect(0, 0, targetView.frame.width, targetView.frame.height)
+    func insertViewInto(_ parentView:NSView) {
+        parentView.addSubview(self.view)
+        self.view.frame = NSMakeRect(0, 0, parentView.frame.width, parentView.frame.height)
     }
 }

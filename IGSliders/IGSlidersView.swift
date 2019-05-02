@@ -9,32 +9,21 @@ import Foundation
 import AppKit
 
 
-public class IGSliders:NSView {
+public class IGSlidersView:NSView {
     
     typealias CoordUnit = Double
     
-    struct Axis {
-        var name: String = "new Axis"
-        var bounds: ClosedRange<CoordUnit> = 0...1
-        var `default`: CoordUnit = 0.5
-        var styles:[Style] = []
-        var selectedStyleIndex:Int = -1
-    }
+   
     
-    struct Style {
-        var name: String = "new Style"
-        var axis: Axis? = nil
-        var egdesValues: [CoordUnit] = []
-    }
+    
     
     var axes:[Axis] = []
-    
-    
-    var isAxisSelected:Bool {
+
+    var isAxisSelected: Bool {
+        print (selectedAxisIndex, axes.count)
         return (0...axes.count).contains(selectedAxisIndex) && axes.count > 0
     }
-    
-    
+
     var isStyleSelected: Bool {
         if !isAxisSelected {return false}
         else {
@@ -43,17 +32,6 @@ public class IGSliders:NSView {
         }
     }
     
-    @objc public var axesNames:[String]  {
-        get {
-            return axes.map {$0.name}
-        }
-        set {
-            guard axes.count == newValue.count else {return}
-            for index in 0...axes.count-1 {
-                axes[index].name = newValue[index]
-            }
-        }
-    }
     
     @objc public var selectedAxisStyleNames:[String]  {
         get {
@@ -72,26 +50,24 @@ public class IGSliders:NSView {
     }
     
     
-    
+    var axisDuringDeletion = false
     
     @objc public var selectedAxisIndex: Int = -1 {
         willSet {
-            
+            print (axes)
             axes.forEach{print(" • <Axis> willSet", $0.name, $0.selectedStyleIndex)}
-            if isAxisSelected {
+            guard isAxisSelected, !axisDuringDeletion  else { return }
                 axes[selectedAxisIndex].selectedStyleIndex = selectedStyleIndex
-            }
+            
         }
         
         didSet {
-            
             if isAxisSelected {
                 selectedStyleIndex = axes[selectedAxisIndex].selectedStyleIndex
             } else {
                 selectedStyleIndex = -1
             }
-            print ("OH, axis index binded", isAxisSelected, selectedAxisIndex, selectedStyleIndex)
-            axes.forEach{print(" • <Axis> didSet", $0.name, $0.selectedStyleIndex)}
+            axisDuringDeletion = false
         }
     }
     
@@ -120,8 +96,8 @@ public class IGSliders:NSView {
     func removeAxis() {
         guard isAxisSelected else {return}
         axes.remove(at: selectedAxisIndex)
-        selectedAxisIndex = selectedAxisIndex > axes.count - 1 ?
-            axes.count - 1 : selectedAxisIndex
+        axisDuringDeletion = true
+        selectedAxisIndex = -1
     }
     
     func addStyle() {

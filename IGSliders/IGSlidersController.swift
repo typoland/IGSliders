@@ -12,29 +12,23 @@ import AppKit
 
 public class IGSlidersController: NSViewController {
     
-    @IBOutlet public weak var sliders:IGSliders!
+    @IBOutlet public weak var sliders: IGSlidersView!
     
     init () {
-        
         super.init(nibName: "IGEditView", bundle: Bundle.init(identifier: "com.typoland.IGSliders"))
-        print ("Init \(self.nibBundle?.description ?? "No Bundle")")
     }
     
     required init?(coder: NSCoder) {
-        super.init(nibName: "IGEditView", bundle: Bundle.init(identifier: "com.typoland.IGSliders"))
-        print ("Init coder \(self.nibBundle?.description ?? "No Bundle")")
-    }
+        super.init(nibName: "IGEditView", bundle: Bundle.init(identifier: "com.typoland.IGSliders"))    }
     
     
     @objc var axesNames: [String] {
         get {
-            print ("CONTROLLER getting axes names \(view)")
-            return sliders.axesNames
+            return sliders.axes.map { $0.name }
         }
         set {
             willChangeValue(for: \IGSlidersController.axesNames)
-            print ("CONTROLLER settnig axes names")
-            sliders.axesNames = newValue
+            (0...sliders.axes.count-1).forEach {sliders.axes[$0].name = newValue[$0]}
             didChangeValue(for: \IGSlidersController.axesNames)
 
         }
@@ -56,7 +50,7 @@ public class IGSlidersController: NSViewController {
         return selectedStyleIndex >= 0
     }
     
-    @objc var stylesNames: [String] {
+    @objc var selectedAxisStylesNames: [String] {
         get {
             print ("CONTROLLER getting styles names")
             return sliders.selectedAxisStyleNames
@@ -66,26 +60,38 @@ public class IGSlidersController: NSViewController {
         }
     }
     
-    @objc var selectedAxisIndex: Int = -1 {
-        willSet {
+    @objc var selectedAxisStylesNamesString: String {
+        var s = selectedAxisStylesNames.reduce("",  {str, name in
+            return "\(str) \(name),"
+        })
+        if !s.isEmpty { _ = s.removeLast() }
+        return s
+    }
+    
+    @objc var selectedAxisIndex: Int {
+        get {
+            return sliders.selectedAxisIndex
+        }
+        set {
             willChangeValue(for: \IGSlidersController.canAddAxis)
             willChangeValue(for: \IGSlidersController.canRemoveAxis)
             willChangeValue(for: \IGSlidersController.selectedStyleIndex)
             willChangeValue(for: \IGSlidersController.selectedAxesIndexes)
             willChangeValue(for: \IGSlidersController.selectedStylesIndexes)
-            willChangeValue(for: \IGSlidersController.stylesNames)
+            willChangeValue(for: \IGSlidersController.selectedAxisStylesNames)
             willChangeValue(for: \IGSlidersController.selectedAxisDefaultValue)
             willChangeValue(for: \IGSlidersController.selectedAxisLowerBound)
-             willChangeValue(for: \IGSlidersController.selectedAxisUpperBound)
+            willChangeValue(for: \IGSlidersController.selectedAxisUpperBound)
             willChangeValue(for: \IGSlidersController.selectedAxisName)
-        }
-        didSet {
-            sliders.selectedAxisIndex = selectedAxisIndex
+        
+            sliders.selectedAxisIndex = newValue
+            saveToDefaults(self)
+            
             didChangeValue(for: \IGSlidersController.selectedAxisName)
             didChangeValue(for: \IGSlidersController.selectedAxisUpperBound)
             didChangeValue(for: \IGSlidersController.selectedAxisLowerBound)
             didChangeValue(for: \IGSlidersController.selectedAxisDefaultValue)
-            didChangeValue(for: \IGSlidersController.stylesNames)
+            didChangeValue(for: \IGSlidersController.selectedAxisStylesNames)
             didChangeValue(for: \IGSlidersController.selectedStylesIndexes)
             didChangeValue(for: \IGSlidersController.selectedAxesIndexes)
             didChangeValue(for: \IGSlidersController.selectedStyleIndex)
@@ -106,9 +112,23 @@ public class IGSlidersController: NSViewController {
         }
     }
     
+    @objc var selectedStyleName: String {
+        get {
+            guard selectedStyleIndex > -1 else {return ""}
+            return sliders.axes[selectedAxisIndex].styles[selectedStyleIndex].name
+        }
+        set {
+            guard selectedStyleIndex > -1 else {return} //nie wiem
+            sliders.axes[selectedAxisIndex].styles[selectedStyleIndex].name = newValue
+        }
+    }
+    
+    
+    
     @objc var selectedStyleIndex: Int = -1 {
         
         willSet {
+            willChangeValue(for: \IGSlidersController.selectedStyleName)
             willChangeValue(for: \IGSlidersController.canAddStyle)
             willChangeValue(for: \IGSlidersController.canRemoveStyle)
             //willChangeValue(for: \IGSlidersController.selectedStylesIndexes)
@@ -119,6 +139,7 @@ public class IGSlidersController: NSViewController {
             sliders.selectedStyleIndex = selectedStyleIndex
             didChangeValue(for: \IGSlidersController.canRemoveStyle)
             didChangeValue(for: \IGSlidersController.canAddStyle)
+            didChangeValue(for: \IGSlidersController.selectedStyleName)
             
         }
     }
@@ -206,25 +227,27 @@ public class IGSlidersController: NSViewController {
     }
 
     @IBAction func addStyle(_ sender:Any) {
-        willChangeValue(for: \IGSlidersController.stylesNames)
-        willChangeValue(for: \IGSlidersController.selectedAxisIndex)
+        willChangeValue(for: \IGSlidersController.selectedAxisStylesNames)
+        willChangeValue(for: \IGSlidersController.selectedStyleIndex)
         sliders.addStyle()
-        didChangeValue(for: \IGSlidersController.selectedAxisIndex)
-        didChangeValue(for: \IGSlidersController.stylesNames)
+        didChangeValue(for: \IGSlidersController.selectedStyleIndex)
+        didChangeValue(for: \IGSlidersController.selectedAxisStylesNames)
     }
 
     @IBAction func removeAxis(_ sender:Any) {
         willChangeValue(for: \IGSlidersController.axesNames)
         willChangeValue(for: \IGSlidersController.selectedAxisIndex)
+        //let currentIndex = selectedAxisIndex
         sliders.removeAxis()
+        selectedAxisIndex = sliders.axes.count > 0 ? 0 : -1
         didChangeValue(for: \IGSlidersController.selectedAxisIndex)
         didChangeValue(for: \IGSlidersController.axesNames)
     }
     
     @IBAction func removeStyle(_ sender:Any) {
-        willChangeValue(for: \IGSlidersController.stylesNames)
+        willChangeValue(for: \IGSlidersController.selectedAxisStylesNames)
         sliders.removeStyle()
-        didChangeValue(for: \IGSlidersController.stylesNames)
+        didChangeValue(for: \IGSlidersController.selectedAxisStylesNames)
     }
 
     
@@ -239,9 +262,9 @@ public class IGSlidersController: NSViewController {
     @IBAction func changeStyleName(_ sender:Any) {
         guard let control = sender as? NSControl else {return}
         print ("CONTROLLER change style name \(control.stringValue)")
-        willChangeValue(for: \IGSlidersController.stylesNames)
+        willChangeValue(for: \IGSlidersController.selectedAxisStylesNames)
         sliders?.changeCurrentStyleName(control.stringValue)
-        didChangeValue(for: \IGSlidersController.stylesNames)
+        didChangeValue(for: \IGSlidersController.selectedAxisStylesNames)
     }
     
     @IBAction func setSelectedAxis(_ sender:Any) {
@@ -254,7 +277,7 @@ public class IGSlidersController: NSViewController {
         case is NSControl:
             let nr = Int((sender as? NSControl)?.intValue ?? -1)
             print (nr)
-            let max = sliders.axesNames.count-1
+            let max = sliders.axes.count-1
             print ("•")
             selectedAxisIndex = nr > max ? max : nr
             print ("°", selectedAxisIndex, nr, max, nr>max)
@@ -281,4 +304,6 @@ public class IGSlidersController: NSViewController {
         }
         print ("set selected Style \(selectedStyleIndex)")
     }
+    
+    
 }
