@@ -60,9 +60,17 @@ public class IGSlidersController: NSViewController {
         }
     }
     
+    @objc var axesNamesString: String {
+        var s = axesNames.reduce("",  {str, name in
+            return "\(str) \(name.count == 0 ? "<no name>" : name),"
+        })
+        if !s.isEmpty { _ = s.removeLast() }
+        return s
+    }
+    
     @objc var selectedAxisStylesNamesString: String {
         var s = selectedAxisStylesNames.reduce("",  {str, name in
-            return "\(str) \(name),"
+            return "\(str) \(name.count == 0 ? "<no name>" : name),"
         })
         if !s.isEmpty { _ = s.removeLast() }
         return s
@@ -125,16 +133,16 @@ public class IGSlidersController: NSViewController {
     
     
     
-    @objc var selectedStyleIndex: Int = -1 {
+    @objc var selectedStyleIndex: Int{
         
-        willSet {
+       get {
+        
+            return sliders.selectedStyleIndex
+        }
+        set {
             willChangeValue(for: \IGSlidersController.selectedStyleName)
             willChangeValue(for: \IGSlidersController.canAddStyle)
             willChangeValue(for: \IGSlidersController.canRemoveStyle)
-            //willChangeValue(for: \IGSlidersController.selectedStylesIndexes)
-        }
-        didSet {
-            
             print ("did set selectedStyleIndex to \(selectedStyleIndex)")
             sliders.selectedStyleIndex = selectedStyleIndex
             didChangeValue(for: \IGSlidersController.canRemoveStyle)
@@ -220,8 +228,11 @@ public class IGSlidersController: NSViewController {
     @IBAction func addAxis(_ sender:Any) {
         willChangeValue(for: \IGSlidersController.axesNames)
         willChangeValue(for: \IGSlidersController.selectedAxisIndex)
+        willChangeValue(for: \IGSlidersController.selectedStyleIndex)
         sliders.addAxis()
         selectedAxisIndex = sliders.selectedAxisIndex
+        selectedStyleIndex = -1
+        didChangeValue(for: \IGSlidersController.selectedStyleIndex)
         didChangeValue(for: \IGSlidersController.selectedAxisIndex)
         didChangeValue(for: \IGSlidersController.axesNames)
     }

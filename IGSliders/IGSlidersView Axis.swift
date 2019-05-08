@@ -18,10 +18,14 @@ extension IGSlidersView {
             case lowerBound
             case upperBound
             case styles
+            case `default`
+            case defaultStyleName
         }
+        
         var name: String = "new Axis"
         var bounds: ClosedRange<CoordUnit> = 0...1
         var `default`: CoordUnit = 0.5
+        var defaultStyleName = "Default"
         var styles:[Style] = []
         var selectedStyleIndex:Int = -1
         
@@ -36,7 +40,8 @@ extension IGSlidersView {
             let ub = try container.decode(CoordUnit.self, forKey: .upperBound)
             bounds = lb...ub
             styles = try container.decode([Style].self, forKey: .styles)
-            //styles = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(stylesData) as? [ASVStyle] ?? []
+            `default` = try container.decode(CoordUnit.self, forKey: .default)
+            defaultStyleName = try container.decode(String.self, forKey: .defaultStyleName)
         }
         
         func encode(to encoder: Encoder) throws {
@@ -46,9 +51,8 @@ extension IGSlidersView {
             try container.encode(bounds.lowerBound, forKey: .lowerBound)
             try container.encode(bounds.upperBound, forKey: .upperBound)
             try container.encode(styles, forKey: .styles)
-            //let stylesData = try NSKeyedArchiver.archivedData(withRootObject: styles, requiringSecureCoding: false)
-            //try container.encode(stylesData, forKey: .styles)
-            
+            try container.encode(`default`, forKey: .default)
+            try container.encode(defaultStyleName, forKey: .defaultStyleName)
         }
     }
 }

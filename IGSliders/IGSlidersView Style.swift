@@ -9,6 +9,7 @@
 import Foundation
 
 extension IGSlidersView {
+    
     struct Style: Codable {
         
         typealias CoordUnit = Double
