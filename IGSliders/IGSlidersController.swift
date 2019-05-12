@@ -66,16 +66,16 @@ public class IGSlidersController: NSViewController {
     }
     
     @objc var axesNamesString: String {
-        var s = axesNames.reduce("",  {str, name in
-            return "\(str) \(name.count == 0 ? "<no name>" : name),"
+        var s = axesNames.reduce(into: "",  {str, name in
+            str += " \(name.count == 0 ? "<Unnamed>" : name),"
         })
         if !s.isEmpty { _ = s.removeLast() }
         return s
     }
     
     @objc var selectedAxisStylesNamesString: String {
-        var s = selectedAxisStylesNames.reduce("",  {str, name in
-            return "\(str) \(name.count == 0 ? "<no name>" : name),"
+        var s = selectedAxisStylesNames.reduce(into:"",  {str, name in
+            str +=  " \(name),"
         })
         if !s.isEmpty { _ = s.removeLast() }
         return s

@@ -23,9 +23,7 @@ extension IGSlidersController {
                     deep (axisNr: axisNr + 1, styles: styles + [style])
                 }
             } else {
-                print ("skleja")
                 styles.forEach({print ($0.name, $0.egdesValues)})
-                print ("skleił \(styles.map{$0.egdesValues})\n")
                 let mStyle = EFStyle(styles.map{$0.name},
                                      styles.map{$0.egdesValues})
                 result.append(mStyle)
