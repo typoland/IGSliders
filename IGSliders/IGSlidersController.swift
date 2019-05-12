@@ -117,7 +117,7 @@ public class IGSlidersController: NSViewController {
             didChangeValue(for: \IGSlidersController.canAddAxis)
             saveToDefaults(self)
             print ("SelectedAxisIndex Set \(selectedAxisIndex)")
-            convertToStyles()
+            coordinates()
         }
     }
     
@@ -162,7 +162,7 @@ public class IGSlidersController: NSViewController {
             didChangeValue(for: \IGSlidersController.canRemoveStyle)
             didChangeValue(for: \IGSlidersController.canAddStyle)
             didChangeValue(for: \IGSlidersController.selectedStyleName)
-            convertToStyles()
+            coordinates()
             
         }
     }
