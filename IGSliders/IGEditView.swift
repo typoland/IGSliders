@@ -12,6 +12,7 @@ public class IGEditView: NSView {
     public override func awakeFromNib() {
         print ("AWAKEN ")
     }
+    
     public override func draw(_ dirtyRect: NSRect) {
         NSColor.red.setFill()
         NSBezierPath.init(rect: dirtyRect).fill()

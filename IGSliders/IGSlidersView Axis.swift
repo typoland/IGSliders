@@ -9,6 +9,7 @@
 import Foundation
 
 extension IGSlidersView {
+    
     struct Axis: Codable {
         
         typealias CoordUnit = Double
@@ -42,6 +43,7 @@ extension IGSlidersView {
             styles = try container.decode([Style].self, forKey: .styles)
             `default` = try container.decode(CoordUnit.self, forKey: .default)
             defaultStyleName = try container.decode(String.self, forKey: .defaultStyleName)
+            selectedStyleIndex = styles.count > 0 ? 0 : -1
         }
         
         func encode(to encoder: Encoder) throws {

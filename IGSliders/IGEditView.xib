@@ -134,14 +134,14 @@
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <connections>
-                                    <binding destination="-2" name="maxValue" keyPath="selectedAxisUpperBound" id="nqr-07-bsy"/>
-                                    <binding destination="-2" name="minValue" keyPath="selectedAxisLowerBound" previousBinding="nqr-07-bsy" id="Tgf-lM-Kc8"/>
                                     <binding destination="-2" name="value" keyPath="selectedAxisDefaultValue" previousBinding="Tgf-lM-Kc8" id="5Mb-mB-ggi">
                                         <dictionary key="options">
                                             <bool key="NSConditionallySetsEditable" value="YES"/>
                                             <bool key="NSConditionallySetsEnabled" value="YES"/>
                                         </dictionary>
                                     </binding>
+                                    <binding destination="-2" name="minValue" keyPath="selectedAxisLowerBound" previousBinding="nqr-07-bsy" id="Tgf-lM-Kc8"/>
+                                    <binding destination="-2" name="maxValue" keyPath="selectedAxisUpperBound" id="nqr-07-bsy"/>
                                 </connections>
                             </textFieldCell>
                         </textField>
@@ -165,7 +165,7 @@
                             </textFieldCell>
                         </textField>
                         <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8h3-oo-ZMw" customClass="IGSlidersView" customModule="IGSliders" customModuleProvider="target">
-                            <rect key="frame" x="1" y="2" width="191" height="87"/>
+                            <rect key="frame" x="1" y="2" width="191" height="154"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </customView>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HSr-k8-Eqk">
@@ -198,7 +198,7 @@
                             </buttonCell>
                             <connections>
                                 <action selector="addStyle:" target="-2" id="QEB-4i-8c7"/>
-                                <binding destination="-2" name="enabled" keyPath="canAddAxis" id="EwT-uB-fuz"/>
+                                <binding destination="-2" name="enabled" keyPath="canAddStyle" id="cSG-AT-eii"/>
                             </connections>
                         </button>
                         <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UqM-f8-lIy">
@@ -208,12 +208,14 @@
                                 <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nd2-cV-ao2">
                                     <rect key="frame" x="21" y="3" width="151" height="17"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                    <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" focusRingType="none" title="Label" bezelStyle="round" id="9ZO-1k-pal">
-                                        <font key="font" metaFont="systemBold" size="11"/>
+                                    <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" borderStyle="bezel" focusRingType="none" title="Label" bezelStyle="round" id="9ZO-1k-pal">
+                                        <font key="font" metaFont="smallSystemBold"/>
                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                     <connections>
+                                        <binding destination="-2" name="editable" keyPath="canRemoveStyle" id="9XT-ph-Og4"/>
+                                        <binding destination="-2" name="enabled" keyPath="canRemoveStyle" previousBinding="9XT-ph-Og4" id="cau-7m-6Ne"/>
                                         <binding destination="-2" name="value" keyPath="selectedStyleName" id="8mB-Dl-m0Y">
                                             <dictionary key="options">
                                                 <string key="NSNullPlaceholder">&lt;no name&gt;</string>
@@ -230,7 +232,7 @@
                                     </buttonCell>
                                     <connections>
                                         <action selector="removeStyle:" target="-2" id="rUc-Fi-uME"/>
-                                        <binding destination="-2" name="enabled" keyPath="canAddAxis" id="6or-0x-pVU"/>
+                                        <binding destination="-2" name="enabled" keyPath="canRemoveStyle" id="d16-YC-CwR"/>
                                     </connections>
                                 </button>
                                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NK6-bf-zew">
@@ -254,7 +256,11 @@
                                 </popUpButton>
                             </subviews>
                             <connections>
-                                <binding destination="-2" name="hidden" keyPath="canRemoveStyle" id="aXe-NT-Mty"/>
+                                <binding destination="-2" name="hidden" keyPath="canRemoveStyle" id="pUy-wo-Go4">
+                                    <dictionary key="options">
+                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                    </dictionary>
+                                </binding>
                             </connections>
                         </customView>
                     </subviews>
@@ -275,8 +281,8 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="-2" name="enabled" keyPath="canRemoveAxis" previousBinding="SjC-hL-rNX" id="Lhf-xk-jJq"/>
                         <binding destination="-2" name="editable" keyPath="canRemoveAxis" id="SjC-hL-rNX"/>
+                        <binding destination="-2" name="enabled" keyPath="canRemoveAxis" previousBinding="SjC-hL-rNX" id="IKX-Yt-rku"/>
                         <binding destination="-2" name="value" keyPath="selectedAxisName" id="2SP-Qj-GQg">
                             <dictionary key="options">
                                 <bool key="NSConditionallySetsEnabled" value="YES"/>

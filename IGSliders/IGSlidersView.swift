@@ -62,11 +62,14 @@ public class IGSlidersView:NSView {
         }
         
         didSet {
+            
             if isAxisSelected {
                 selectedStyleIndex = axes[selectedAxisIndex].selectedStyleIndex
             } else {
                 selectedStyleIndex = -1
             }
+             print (selectedAxisIndex)
+            axes.forEach{print(" • <Axis> didSet ", $0.name, $0.selectedStyleIndex)}
             axisDuringDeletion = false
         }
     }

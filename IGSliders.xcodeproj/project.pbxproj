@@ -46,7 +46,6 @@
 		B2AC397D227ACCD4006A61C0 /* IGSlidersView Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IGSlidersView Style.swift"; sourceTree = "<group>"; };
 		B2AC3980227AD280006A61C0 /* IGSlidersController readWriteDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IGSlidersController readWriteDefaults.swift"; sourceTree = "<group>"; };
 		B2AC3982227F7B73006A61C0 /* valuesArray.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = valuesArray.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		B2F6C412228048DF0066DFFA /* EgdesResearcg.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = EgdesResearcg.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +88,6 @@
 		B2476D332276E6E600776352 /* IGSliders */ = {
 			isa = PBXGroup;
 			children = (
-				B2F6C412228048DF0066DFFA /* EgdesResearcg.playground */,
 				B2AC3982227F7B73006A61C0 /* valuesArray.playground */,
 				B2476DA122783D0200776352 /* IGSlidersController.swift */,
 				B2476DB52279AACB00776352 /* IGSlidersController InsertViewInto.swift */,
