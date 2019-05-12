@@ -13,14 +13,10 @@ public class IGSlidersView:NSView {
     
     typealias CoordUnit = Double
     
-   
-    
-    
-    
     var axes:[Axis] = []
 
     var isAxisSelected: Bool {
-        print (selectedAxisIndex, axes.count)
+        //print (selectedAxisIndex, axes.count)
         return (0...axes.count).contains(selectedAxisIndex) && axes.count > 0
     }
 
@@ -54,8 +50,8 @@ public class IGSlidersView:NSView {
     
     @objc public var selectedAxisIndex: Int = -1 {
         willSet {
-            print (axes)
-            axes.forEach{print(" • <Axis> willSet", $0.name, $0.selectedStyleIndex)}
+            //print (axes)
+            //axes.forEach{print(" • <Axis> willSet", $0.name, $0.selectedStyleIndex)}
             guard isAxisSelected, !axisDuringDeletion  else { return }
                 axes[selectedAxisIndex].selectedStyleIndex = selectedStyleIndex
             
@@ -68,8 +64,8 @@ public class IGSlidersView:NSView {
             } else {
                 selectedStyleIndex = -1
             }
-             print (selectedAxisIndex)
-            axes.forEach{print(" • <Axis> didSet ", $0.name, $0.selectedStyleIndex)}
+             //print (selectedAxisIndex)
+            //axes.forEach{print(" • <Axis> didSet ", $0.name, $0.selectedStyleIndex)}
             axisDuringDeletion = false
         }
     }
@@ -83,7 +79,7 @@ public class IGSlidersView:NSView {
             } //else {
 //                selectedStyleIndex = -1
 //            }
-            print ("OH, style index is binded", selectedAxisIndex, selectedStyleIndex)
+            //print ("OH, style index is binded", selectedAxisIndex, selectedStyleIndex)
 //            axes.forEach{print("OUT >>", $0.name, $0.selectedStyleIndex)}
         }
     }
@@ -94,6 +90,16 @@ public class IGSlidersView:NSView {
         let newAxis = Axis()
         axes.append(newAxis)
         selectedAxisIndex = axes.count - 1
+        for axisNr in 0 ..< axes.count {
+            for styleNr in 0..<axes[axisNr].styles.count {
+                //print ("in :\(axis.name), \(style.name)",style.egdesValues.count)
+                let values = axes[axisNr].styles[styleNr].egdesValues
+                axes[axisNr].styles[styleNr].egdesValues = values + values
+                //print ("out:\(axis.name), \(style.name)",style.egdesValues.count)
+                print ()
+            }
+        }
+        
     }
     
     func removeAxis() {
@@ -105,8 +111,13 @@ public class IGSlidersView:NSView {
     
     func addStyle() {
         guard isAxisSelected else {return}
-        let newStyle = Style()
+        var newStyle = Style()
+        let defaultValue = axes[selectedAxisIndex].default
+        newStyle.egdesValues = Array(
+            repeating: defaultValue,
+            count: 1 << (axes.count - 1))
         axes[selectedAxisIndex].styles.append(newStyle)
+        selectedStyleIndex = axes[selectedAxisIndex].styles.count - 1
         
     }
     
@@ -121,7 +132,7 @@ public class IGSlidersView:NSView {
     }
     
     func changeCurrentStyleName(_ name: String) {
-        print ("isStyleSelected", isStyleSelected)
+        //print ("isStyleSelected", isStyleSelected)
         guard isStyleSelected else {return}
         axes[selectedAxisIndex].styles[selectedStyleIndex].name = name
     }

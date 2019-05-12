@@ -177,12 +177,13 @@
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                             <connections>
-                                <binding destination="-2" name="displayPatternValue1" keyPath="selectedAxisStylesNames.@count" id="y6S-5o-dSL">
+                                <binding destination="-2" name="displayPatternValue2" keyPath="selectedAxisStylesNamesString" previousBinding="y6S-5o-dSL" id="cxo-yw-NIt">
                                     <dictionary key="options">
                                         <string key="NSDisplayPattern">Styles (%{value1}@): %{value2}@</string>
+                                        <string key="NSNullPlaceholder">Regular</string>
                                     </dictionary>
                                 </binding>
-                                <binding destination="-2" name="displayPatternValue2" keyPath="selectedAxisStylesNamesString" previousBinding="y6S-5o-dSL" id="En3-YM-u60">
+                                <binding destination="-2" name="displayPatternValue1" keyPath="selectedAxisStylesNames.@count" id="y6S-5o-dSL">
                                     <dictionary key="options">
                                         <string key="NSDisplayPattern">Styles (%{value1}@): %{value2}@</string>
                                     </dictionary>
@@ -216,9 +217,9 @@
                                     <connections>
                                         <binding destination="-2" name="editable" keyPath="canRemoveStyle" id="9XT-ph-Og4"/>
                                         <binding destination="-2" name="enabled" keyPath="canRemoveStyle" previousBinding="9XT-ph-Og4" id="cau-7m-6Ne"/>
-                                        <binding destination="-2" name="value" keyPath="selectedStyleName" id="8mB-Dl-m0Y">
+                                        <binding destination="-2" name="value" keyPath="selectedStyleName" id="3df-7L-0XB">
                                             <dictionary key="options">
-                                                <string key="NSNullPlaceholder">&lt;no name&gt;</string>
+                                                <string key="NSNullPlaceholder">Regular</string>
                                             </dictionary>
                                         </binding>
                                     </connections>
@@ -250,8 +251,12 @@
                                         </menu>
                                     </popUpButtonCell>
                                     <connections>
-                                        <binding destination="-2" name="contentValues" keyPath="selectedAxisStylesNames" id="d7m-Fo-my9"/>
-                                        <binding destination="-2" name="selectedIndex" keyPath="selectedStyleIndex" previousBinding="d7m-Fo-my9" id="Af1-Q3-h7k"/>
+                                        <binding destination="-2" name="contentValues" keyPath="selectedAxisStylesNames" id="TT1-v9-dPO">
+                                            <dictionary key="options">
+                                                <string key="NSNullPlaceholder">Regular</string>
+                                            </dictionary>
+                                        </binding>
+                                        <binding destination="-2" name="selectedIndex" keyPath="selectedStyleIndex" previousBinding="TT1-v9-dPO" id="oYZ-I4-wHZ"/>
                                     </connections>
                                 </popUpButton>
                             </subviews>
@@ -281,8 +286,8 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="-2" name="editable" keyPath="canRemoveAxis" id="SjC-hL-rNX"/>
                         <binding destination="-2" name="enabled" keyPath="canRemoveAxis" previousBinding="SjC-hL-rNX" id="IKX-Yt-rku"/>
+                        <binding destination="-2" name="editable" keyPath="canRemoveAxis" id="SjC-hL-rNX"/>
                         <binding destination="-2" name="value" keyPath="selectedAxisName" id="2SP-Qj-GQg">
                             <dictionary key="options">
                                 <bool key="NSConditionallySetsEnabled" value="YES"/>
