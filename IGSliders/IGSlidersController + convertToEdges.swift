@@ -23,7 +23,6 @@ extension IGSlidersController {
                     deep (axisNr: axisNr + 1, styles: styles + [style])
                 }
             } else {
-                styles.forEach({print ($0.name, $0.egdesValues)})
                 let mStyle = EFStyle(styles.map{$0.name},
                                      styles.map{$0.egdesValues})
                 result.append(mStyle)
@@ -31,7 +30,7 @@ extension IGSlidersController {
             
         }
         deep()
-
-        return result.map {(name:$0.name, values: $0.coordinates)}
+        
+        return result.map {(name: $0.name, values: $0.coordinates)}
     }
 }

@@ -116,8 +116,8 @@ public class IGSlidersController: NSViewController {
             didChangeValue(for: \IGSlidersController.canRemoveAxis)
             didChangeValue(for: \IGSlidersController.canAddAxis)
             saveToDefaults(self)
-            print ("SelectedAxisIndex Set \(selectedAxisIndex)")
-            coordinates()
+            //print ("SelectedAxisIndex Set \(selectedAxisIndex)")
+            //coordinates().forEach{ print ($0)}
         }
     }
     
@@ -154,7 +154,7 @@ public class IGSlidersController: NSViewController {
             return sliders.selectedStyleIndex
         }
         set {
-            print ("Setting")
+            //print ("Setting")
             willChangeValue(for: \IGSlidersController.selectedStyleName)
             willChangeValue(for: \IGSlidersController.canAddStyle)
             willChangeValue(for: \IGSlidersController.canRemoveStyle)
@@ -162,7 +162,7 @@ public class IGSlidersController: NSViewController {
             didChangeValue(for: \IGSlidersController.canRemoveStyle)
             didChangeValue(for: \IGSlidersController.canAddStyle)
             didChangeValue(for: \IGSlidersController.selectedStyleName)
-            coordinates()
+            coordinates().forEach  { print ("•", $0)}
             
         }
     }
@@ -277,10 +277,12 @@ public class IGSlidersController: NSViewController {
         willChangeValue(for: \IGSlidersController.selectedAxisStylesNames)
         willChangeValue(for: \IGSlidersController.selectedStyleName)
          willChangeValue(for: \IGSlidersController.selectedStyleIndex)
+        willChangeValue(for: \IGSlidersController.canRemoveStyle)
         sliders.removeStyle()
         didChangeValue(for: \IGSlidersController.selectedStyleName)
         didChangeValue(for: \IGSlidersController.selectedStyleIndex)
         didChangeValue(for: \IGSlidersController.selectedAxisStylesNames)
+        didChangeValue(for: \IGSlidersController.canRemoveStyle)
     }
 
     

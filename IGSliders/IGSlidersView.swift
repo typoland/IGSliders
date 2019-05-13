@@ -16,7 +16,6 @@ public class IGSlidersView:NSView {
     var axes:[Axis] = []
 
     var isAxisSelected: Bool {
-        //print (selectedAxisIndex, axes.count)
         return (0...axes.count).contains(selectedAxisIndex) && axes.count > 0
     }
 
@@ -47,6 +46,7 @@ public class IGSlidersView:NSView {
     
     
     var axisDuringDeletion = false
+    var styleDuringDeletion = false
     
     @objc public var selectedAxisIndex: Int = -1 {
         willSet {
@@ -92,11 +92,10 @@ public class IGSlidersView:NSView {
         selectedAxisIndex = axes.count - 1
         for axisNr in 0 ..< axes.count {
             for styleNr in 0..<axes[axisNr].styles.count {
-                //print ("in :\(axis.name), \(style.name)",style.egdesValues.count)
+
                 let values = axes[axisNr].styles[styleNr].egdesValues
                 axes[axisNr].styles[styleNr].egdesValues = values + values
-                //print ("out:\(axis.name), \(style.name)",style.egdesValues.count)
-                print ()
+
             }
         }
         
@@ -123,7 +122,11 @@ public class IGSlidersView:NSView {
     
     func removeStyle() {
         guard isStyleSelected else {return}
+        styleDuringDeletion = true
+        
         axes[selectedAxisIndex].styles.remove(at: selectedStyleIndex)
+        selectedStyleIndex = axes[selectedAxisIndex].styles.count == 1 ?
+            0 : selectedStyleIndex - 1
     }
     
     func changeCurrentAxis(_ name: String) {
