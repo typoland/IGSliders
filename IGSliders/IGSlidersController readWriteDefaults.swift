@@ -26,6 +26,14 @@ public extension IGSlidersController {
             sliders.axes = axes
             selectedAxisIndex = axes.count>0 ? 0 : -1
         }
+        print ("read")
+        sliders.axes.forEach({axis in
+            print (axis.name)
+            print (axis.selectedStyleIndex)
+            axis.styles.forEach {style in
+                print (style.name, style.egdesValues.count)
+            }
+        })
        didChangeValue(for: \IGSlidersController.axesNames)
     }
 }

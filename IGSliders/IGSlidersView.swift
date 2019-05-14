@@ -31,7 +31,9 @@ public class IGSlidersView:NSView {
     @objc public var selectedAxisStyleNames:[String]  {
         get {
             return isAxisSelected ?
-                axes[selectedAxisIndex].styles.map{$0.name == "" ? "Regular" : $0.name }
+                axes[selectedAxisIndex].styles.map{$0.name == ""
+                    ? axes[selectedAxisIndex].defaultStyleName
+                    : $0.name }
             :   []
         }
         set {

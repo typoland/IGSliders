@@ -9,6 +9,10 @@
 import Foundation
 import AppKit
 
+public extension Notification.Name {
+//    static var IGSlidersControllerAxesChanged = NSNotification.Name(rawValue: "IGSlidersControllerAxesChanged")
+    static var IGSlidersControllerStylesChanged = NSNotification.Name(rawValue: "IGSlidersControllerStylesChanged")
+}
 
 public class IGSlidersController: NSViewController {
     
@@ -162,7 +166,7 @@ public class IGSlidersController: NSViewController {
             didChangeValue(for: \IGSlidersController.canRemoveStyle)
             didChangeValue(for: \IGSlidersController.canAddStyle)
             didChangeValue(for: \IGSlidersController.selectedStyleName)
-            coordinates().forEach  { print ("•", $0)}
+            //coordinates().forEach  { print ("•", $0)}
             
         }
     }
@@ -238,7 +242,19 @@ public class IGSlidersController: NSViewController {
         }
     }
     
+//    func notifyAxesChange() {
+//        NotificationCenter.default.post(
+//            name: Notification.Name.IGSlidersControllerAxesChanged,
+//            object: coordinates(),
+//            userInfo: nil)
+//    }
     
+    func notifyStylesChange() {
+        NotificationCenter.default.post(
+            name: Notification.Name.IGSlidersControllerStylesChanged,
+            object: coordinates(),
+            userInfo: nil)
+    }
     
     @IBAction func addAxis(_ sender:Any) {
         willChangeValue(for: \IGSlidersController.axesNames)
@@ -250,6 +266,7 @@ public class IGSlidersController: NSViewController {
         didChangeValue(for: \IGSlidersController.selectedStyleIndex)
         didChangeValue(for: \IGSlidersController.selectedAxisIndex)
         didChangeValue(for: \IGSlidersController.axesNames)
+        notifyStylesChange()
     }
 
     @IBAction func addStyle(_ sender:Any) {
@@ -261,6 +278,7 @@ public class IGSlidersController: NSViewController {
         didChangeValue(for: \IGSlidersController.canRemoveStyle)
         didChangeValue(for: \IGSlidersController.selectedStyleIndex)
         didChangeValue(for: \IGSlidersController.selectedAxisStylesNames)
+        notifyStylesChange()
     }
 
     @IBAction func removeAxis(_ sender:Any) {
@@ -271,6 +289,7 @@ public class IGSlidersController: NSViewController {
         selectedAxisIndex = sliders.axes.count > 0 ? 0 : -1
         didChangeValue(for: \IGSlidersController.selectedAxisIndex)
         didChangeValue(for: \IGSlidersController.axesNames)
+        notifyStylesChange()
     }
     
     @IBAction func removeStyle(_ sender:Any) {
@@ -283,6 +302,7 @@ public class IGSlidersController: NSViewController {
         didChangeValue(for: \IGSlidersController.selectedStyleIndex)
         didChangeValue(for: \IGSlidersController.selectedAxisStylesNames)
         didChangeValue(for: \IGSlidersController.canRemoveStyle)
+        notifyStylesChange()
     }
 
     
