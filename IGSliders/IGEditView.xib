@@ -165,7 +165,7 @@
                             </textFieldCell>
                         </textField>
                         <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8h3-oo-ZMw" customClass="IGSlidersView" customModule="IGSliders" customModuleProvider="target">
-                            <rect key="frame" x="1" y="2" width="191" height="154"/>
+                            <rect key="frame" x="1" y="2" width="191" height="140"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </customView>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HSr-k8-Eqk">
@@ -203,11 +203,11 @@
                             </connections>
                         </button>
                         <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UqM-f8-lIy">
-                            <rect key="frame" x="0.0" y="162" width="193" height="20"/>
+                            <rect key="frame" x="0.0" y="144" width="193" height="38"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <subviews>
                                 <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nd2-cV-ao2">
-                                    <rect key="frame" x="21" y="3" width="151" height="17"/>
+                                    <rect key="frame" x="21" y="21" width="151" height="17"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" borderStyle="bezel" focusRingType="none" title="Label" bezelStyle="round" id="9ZO-1k-pal">
                                         <font key="font" metaFont="smallSystemBold"/>
@@ -225,7 +225,7 @@
                                     </connections>
                                 </textField>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PBa-iU-Nf1">
-                                    <rect key="frame" x="176" y="2" width="16" height="16"/>
+                                    <rect key="frame" x="176" y="20" width="16" height="16"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="roundTextured" title="Textured Rounded" bezelStyle="texturedRounded" image="NSRemoveTemplate" imagePosition="only" alignment="center" controlSize="mini" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wR5-wZ-qj8">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -237,7 +237,7 @@
                                     </connections>
                                 </button>
                                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NK6-bf-zew">
-                                    <rect key="frame" x="1" y="3" width="18" height="16"/>
+                                    <rect key="frame" x="1" y="21" width="18" height="16"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" controlSize="mini" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxX" selectedItem="m30-B7-QXU" id="Uqq-6O-VD9">
                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -259,6 +259,22 @@
                                         <binding destination="-2" name="selectedIndex" keyPath="selectedStyleIndex" previousBinding="TT1-v9-dPO" id="oYZ-I4-wHZ"/>
                                     </connections>
                                 </popUpButton>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5py-yK-dvq">
+                                    <rect key="frame" x="20" y="8" width="154" height="11"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <textFieldCell key="cell" controlSize="mini" lineBreakMode="clipping" title="Label" id="clI-e7-aPl">
+                                        <font key="font" metaFont="miniSystem"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                    <connections>
+                                        <binding destination="-2" name="displayPatternValue1" keyPath="selectedStyleValuesCount" id="cle-GX-SMr">
+                                            <dictionary key="options">
+                                                <string key="NSDisplayPattern">edges: %{value1}@</string>
+                                            </dictionary>
+                                        </binding>
+                                    </connections>
+                                </textField>
                             </subviews>
                             <connections>
                                 <binding destination="-2" name="hidden" keyPath="canRemoveStyle" id="pUy-wo-Go4">

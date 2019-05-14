@@ -69,6 +69,11 @@ public class IGSlidersController: NSViewController {
         }
     }
     
+    @objc var selectedStyleValuesCount:Int {
+        guard selectedAxisIndex > -1, selectedStyleIndex > -1 else {return -1}
+        return sliders.axes[selectedAxisIndex].styles[selectedStyleIndex].egdesValues.count
+    }
+    
     @objc var axesNamesString: String {
         var s = axesNames.reduce(into: "",  {str, name in
             str += " \(name.count == 0 ? "<Unnamed>" : name),"
@@ -158,14 +163,16 @@ public class IGSlidersController: NSViewController {
             return sliders.selectedStyleIndex
         }
         set {
-            //print ("Setting")
+            print ("Setting \(selectedStyleValuesCount)")
             willChangeValue(for: \IGSlidersController.selectedStyleName)
             willChangeValue(for: \IGSlidersController.canAddStyle)
             willChangeValue(for: \IGSlidersController.canRemoveStyle)
+            willChangeValue(for: \IGSlidersController.selectedStyleValuesCount)
             sliders.selectedStyleIndex = newValue
             didChangeValue(for: \IGSlidersController.canRemoveStyle)
             didChangeValue(for: \IGSlidersController.canAddStyle)
             didChangeValue(for: \IGSlidersController.selectedStyleName)
+            didChangeValue(for: \IGSlidersController.selectedStyleValuesCount)
             //coordinates().forEach  { print ("•", $0)}
             
         }
