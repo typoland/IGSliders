@@ -112,6 +112,7 @@ public class IGSlidersView:NSView {
                 axes[axisIndex].styles[styleIndex].egdesValues = Array(ev[0..<ev.count/2])
             }
         }
+
         axisDuringDeletion = true
         selectedAxisIndex = selectedAxisIndex == 0 ? 0 : selectedAxisIndex - 1
         
