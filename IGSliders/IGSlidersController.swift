@@ -317,7 +317,7 @@ public class IGSlidersController: NSViewController {
         guard let control  = sender as? NSControl else {return}
         //print ("CONTROLLER change axis name \(control.stringValue)")
         willChangeValue(for: \IGSlidersController.axesNames)
-        sliders?.changeCurrentAxis(control.stringValue)
+        sliders?.changeCurrentAxisName(control.stringValue)
         didChangeValue(for: \IGSlidersController.axesNames)
     }
     

@@ -74,15 +74,11 @@ public class IGSlidersView:NSView {
     
     @objc public var selectedStyleIndex: Int = -1 {
         didSet {
-            
-//            axes.forEach{print("IN  >>", $0.name, $0.selectedStyleIndex)}
             if isAxisSelected {
                 axes[selectedAxisIndex].selectedStyleIndex = selectedStyleIndex
-            } //else {
-//                selectedStyleIndex = -1
-//            }
-            //print ("OH, style index is binded", selectedAxisIndex, selectedStyleIndex)
-//            axes.forEach{print("OUT >>", $0.name, $0.selectedStyleIndex)}
+            } else {
+                selectedStyleIndex = -1
+            }
         }
     }
     
@@ -139,7 +135,7 @@ public class IGSlidersView:NSView {
             0 : selectedStyleIndex - 1
     }
     
-    func changeCurrentAxis(_ name: String) {
+    func changeCurrentAxisName(_ name: String) {
         guard isAxisSelected else {return}
         axes[selectedAxisIndex].name = name
     }

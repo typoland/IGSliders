@@ -21,6 +21,7 @@ extension IGSlidersView {
             case styles
             case `default`
             case defaultStyleName
+            case selectedStyle
         }
         
         var name: String = "new Axis"
@@ -43,7 +44,8 @@ extension IGSlidersView {
             styles = try container.decode([Style].self, forKey: .styles)
             `default` = try container.decode(CoordUnit.self, forKey: .default)
             defaultStyleName = try container.decode(String.self, forKey: .defaultStyleName)
-            selectedStyleIndex = styles.count > 0 ? 0 : -1
+            selectedStyleIndex = try container.decode(Int.self, forKey: .selectedStyle)
+            selectedStyleIndex = styles.count > 0 ? selectedStyleIndex : -1
         }
         
         func encode(to encoder: Encoder) throws {
@@ -55,6 +57,7 @@ extension IGSlidersView {
             try container.encode(styles, forKey: .styles)
             try container.encode(`default`, forKey: .default)
             try container.encode(defaultStyleName, forKey: .defaultStyleName)
+           try container.encode(selectedStyleIndex, forKey: .selectedStyle)
         }
     }
 }
