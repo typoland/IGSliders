@@ -9,8 +9,6 @@
 import Foundation
 import EdgesFramework
 
-
-
 extension IGSlidersController {
     
     typealias EFStyle = EdgesFramework.MultidimensionalStyle

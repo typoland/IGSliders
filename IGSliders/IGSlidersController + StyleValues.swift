@@ -9,18 +9,33 @@
 import Foundation
 
 extension IGSlidersController {
-    @objc dynamic var currentStyleValues: [NSNumber] {
+    
+    class Value:NSObject {
+        @objc dynamic var value: NSNumber {
+            willSet { willChangeValue(for: \Value.value) }
+            didSet { didChangeValue(for: \Value.value) }
+        }
+        init (_ value:Double) {
+            self.value = NSNumber(value:value)
+            
+        }
+        override var description: String {
+            return String(format: "%1.3f", value.floatValue)
+        }
+    }
+    
+    @objc dynamic var currentStyleValues: [Value]  {
         get {
             guard let values = currentStyle?.egdesValues else {
                 return []
             }
-            return values.map {NSNumber(value: $0)}
+            return values.map {Value($0)}
         }
         set {
             print ("setting currentStyleValues", currentStyle, currentStyle?.egdesValues, newValue )
             guard let style = currentStyle else {return}
             print (newValue)
-            style.egdesValues = newValue.map {$0.doubleValue}
+            //.egdesValues = newValue.map {$0.doubleValue}
         }
     }
     

@@ -28,7 +28,7 @@ public class IGSlidersController: NSViewController, NSTableViewDataSource, NSTab
     required init? (coder: NSCoder) {
         super.init(nibName: "IGEditView", bundle: Bundle.init(identifier: "com.typoland.IGSliders"))    }
     
-    //    public override func viewDidLoad() {
+       public override func viewDidLoad() {
     //        print ("did load")
     //        tableView.delegate = self
     //        tableView.dataSource = self
@@ -36,13 +36,14 @@ public class IGSlidersController: NSViewController, NSTableViewDataSource, NSTab
     //            print ("nopr")
     //            return}
     //
-    //        edgesController.addObserver(self, forKeyPath: "selectedObjects", options: [.old, .new], context: nil)
-    //        print ("OK")
-    //    }
+            selectedStyleValuesController.addObserver(self, forKeyPath: "selectedObjects", options: [.old, .new], context: nil)
+            print ("OK", selectedStyleValuesController.arrangedObjects)
+        }
     
-    //    override public func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-    //        print ("something changed \(change), \(object)")
-    //    }
+       override public func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+            print ("something changed \(change), \(object)")
+        print ((object as? NSArrayController)?.arrangedObjects)
+      }
     
     //    public func tableViewSelectionDidChange(_ notification:Notification) {
     //        print ("change \(notification.object)")
