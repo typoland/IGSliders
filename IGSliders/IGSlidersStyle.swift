@@ -8,9 +8,9 @@
 
 import Foundation
 
-extension IGSlidersView {
+extension IGSliders {
     
-    struct Style: Codable {
+    class Style: Codable {
         
         typealias CoordUnit = Double
         
@@ -26,7 +26,7 @@ extension IGSlidersView {
         init () {
         }
         
-        init(from decoder:Decoder) throws {
+        required init(from decoder:Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             name = try container.decode(String.self, forKey: .name)
             egdesValues = try container.decode([CoordUnit].self, forKey: .values)

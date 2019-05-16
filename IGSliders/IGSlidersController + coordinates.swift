@@ -16,8 +16,10 @@ extension IGSlidersController {
     typealias EFStyle = EdgesFramework.MultidimensionalStyle
     
     public func coordinates() -> [(name: String, values:[Double])] {
+
         var result = [EFStyle]()
-        func deep (axisNr:Int = 0, styles: [IGSlidersView.Style] = []) {
+
+        func deep (axisNr:Int = 0, styles: [IGSliders.Style] = []) {
             if axisNr < sliders.axes.count {
                 for style in sliders.axes[axisNr].styles {
                     deep (axisNr: axisNr + 1, styles: styles + [style])
@@ -27,10 +29,9 @@ extension IGSlidersController {
                                      styles.map{$0.egdesValues})
                 result.append(mStyle)
             }
-            
         }
         deep()
-        
+
         return result.map {(name: $0.name, values: $0.coordinates)}
     }
 }

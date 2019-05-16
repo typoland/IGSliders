@@ -7,7 +7,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="IGSlidersController" customModule="IGSliders" customModuleProvider="target">
             <connections>
-                <outlet property="sliders" destination="8h3-oo-ZMw" id="iy9-8a-1xc"/>
+                <outlet property="selectedStyleValuesController" destination="ueF-UI-Yzt" id="lDy-kE-M2l"/>
+                <outlet property="slidersView" destination="8h3-oo-ZMw" id="j5D-t2-u6r"/>
                 <outlet property="view" destination="c22-O7-iKe" id="KZL-kx-O3d"/>
             </connections>
         </customObject>
@@ -18,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4jq-jq-Uqf">
-                    <rect key="frame" x="1" y="258" width="24" height="22"/>
+                    <rect key="frame" x="1" y="258" width="23" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxX" selectedItem="5Pb-Wg-6YA" id="1AJ-t0-Uf5">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -167,6 +168,85 @@
                         <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8h3-oo-ZMw" customClass="IGSlidersView" customModule="IGSliders" customModuleProvider="target">
                             <rect key="frame" x="1" y="2" width="191" height="140"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2FW-JB-qNX">
+                                    <rect key="frame" x="3" y="6" width="187" height="135"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <clipView key="contentView" ambiguous="YES" id="E4Z-m7-dVR">
+                                        <rect key="frame" x="1" y="0.0" width="185" height="134"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="dXd-pA-9X9" id="D9c-rM-gMU">
+                                                <rect key="frame" x="0.0" y="0.0" width="186" height="109"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <size key="intercellSpacing" width="3" height="2"/>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                                <tableColumns>
+                                                    <tableColumn width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="fIe-zh-b3g">
+                                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                                            <font key="font" metaFont="smallSystem"/>
+                                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </tableHeaderCell>
+                                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="QKf-ZW-knv">
+                                                            <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="e10-YP-vg9"/>
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            <connections>
+                                                                <binding destination="ueF-UI-Yzt" name="value" keyPath="selection.doubleValue" id="1tD-pY-xGb">
+                                                                    <dictionary key="options">
+                                                                        <bool key="NSConditionallySetsEnabled" value="YES"/>
+                                                                        <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                        <bool key="NSValidatesImmediately" value="YES"/>
+                                                                    </dictionary>
+                                                                </binding>
+                                                            </connections>
+                                                        </textFieldCell>
+                                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    </tableColumn>
+                                                    <tableColumn width="116" minWidth="40" maxWidth="1000" id="oCI-yh-fCP">
+                                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                                            <font key="font" metaFont="smallSystem"/>
+                                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                        </tableHeaderCell>
+                                                        <sliderCell key="dataCell" lineBreakMode="truncatingTail" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="HBL-qd-i3T">
+                                                            <connections>
+                                                                <binding destination="ueF-UI-Yzt" name="value" keyPath="selection.doubleValue" id="WW6-Az-RBA">
+                                                                    <dictionary key="options">
+                                                                        <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                                                        <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                        <bool key="NSValidatesImmediately" value="YES"/>
+                                                                    </dictionary>
+                                                                </binding>
+                                                            </connections>
+                                                        </sliderCell>
+                                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    </tableColumn>
+                                                </tableColumns>
+                                                <connections>
+                                                    <binding destination="ueF-UI-Yzt" name="content" keyPath="arrangedObjects" id="Zwk-2f-fgf"/>
+                                                    <binding destination="ueF-UI-Yzt" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="Zwk-2f-fgf" id="a7J-Bx-jWD"/>
+                                                </connections>
+                                            </tableView>
+                                        </subviews>
+                                    </clipView>
+                                    <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="6U0-Mn-tpn">
+                                        <rect key="frame" x="1" y="118" width="185" height="16"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </scroller>
+                                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="NY6-It-s5E">
+                                        <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </scroller>
+                                    <tableHeaderView key="headerView" id="dXd-pA-9X9">
+                                        <rect key="frame" x="0.0" y="0.0" width="186" height="25"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </tableHeaderView>
+                                </scrollView>
+                            </subviews>
                         </customView>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HSr-k8-Eqk">
                             <rect key="frame" x="-1" y="184" width="176" height="14"/>
@@ -177,15 +257,15 @@
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                             <connections>
+                                <binding destination="-2" name="displayPatternValue1" keyPath="selectedAxisStylesNames.@count" id="y6S-5o-dSL">
+                                    <dictionary key="options">
+                                        <string key="NSDisplayPattern">Styles (%{value1}@): %{value2}@</string>
+                                    </dictionary>
+                                </binding>
                                 <binding destination="-2" name="displayPatternValue2" keyPath="selectedAxisStylesNamesString" previousBinding="y6S-5o-dSL" id="cxo-yw-NIt">
                                     <dictionary key="options">
                                         <string key="NSDisplayPattern">Styles (%{value1}@): %{value2}@</string>
                                         <string key="NSNullPlaceholder">Regular</string>
-                                    </dictionary>
-                                </binding>
-                                <binding destination="-2" name="displayPatternValue1" keyPath="selectedAxisStylesNames.@count" id="y6S-5o-dSL">
-                                    <dictionary key="options">
-                                        <string key="NSDisplayPattern">Styles (%{value1}@): %{value2}@</string>
                                     </dictionary>
                                 </binding>
                             </connections>
@@ -225,7 +305,7 @@
                                     </connections>
                                 </textField>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PBa-iU-Nf1">
-                                    <rect key="frame" x="176" y="20" width="16" height="16"/>
+                                    <rect key="frame" x="177" y="20" width="16" height="16"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="roundTextured" title="Textured Rounded" bezelStyle="texturedRounded" image="NSRemoveTemplate" imagePosition="only" alignment="center" controlSize="mini" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wR5-wZ-qj8">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -338,7 +418,15 @@
             </subviews>
             <point key="canvasLocation" x="10.5" y="137"/>
         </customView>
-        <userDefaultsController representsSharedInstance="YES" id="eWS-7V-1IN"/>
+        <arrayController objectClassName="NSNumber" automaticallyPreparesContent="YES" clearsFilterPredicateOnInsertion="NO" automaticallyRearrangesObjects="YES" id="ueF-UI-Yzt">
+            <connections>
+                <binding destination="-2" name="contentArray" keyPath="currentStyleValues" id="MNU-oJ-r6L">
+                    <dictionary key="options">
+                        <bool key="NSAlwaysPresentsApplicationModalAlerts" value="YES"/>
+                    </dictionary>
+                </binding>
+            </connections>
+        </arrayController>
     </objects>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>

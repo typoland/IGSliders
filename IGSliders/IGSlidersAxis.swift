@@ -8,9 +8,9 @@
 
 import Foundation
 
-extension IGSlidersView {
+extension IGSliders {
     
-    struct Axis: Codable {
+    class Axis: Codable {
         
         typealias CoordUnit = Double
         
@@ -29,12 +29,12 @@ extension IGSlidersView {
         var `default`: CoordUnit = 0.5
         var defaultStyleName = "Default"
         var styles:[Style] = []
-        var selectedStyleIndex:Int = -1
+        var selectedStyleIndex:Int? = nil
         
         init() {
         }
         
-        init(from decoder:Decoder) throws {
+        required init(from decoder:Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             
             name = try container.decode(String.self, forKey: .name)
@@ -45,7 +45,7 @@ extension IGSlidersView {
             `default` = try container.decode(CoordUnit.self, forKey: .default)
             defaultStyleName = try container.decode(String.self, forKey: .defaultStyleName)
             selectedStyleIndex = try container.decode(Int.self, forKey: .selectedStyle)
-            selectedStyleIndex = styles.count > 0 ? selectedStyleIndex : -1
+            selectedStyleIndex = styles.count > 0 ? selectedStyleIndex : nil
         }
         
         func encode(to encoder: Encoder) throws {

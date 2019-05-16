@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B218548F228C0B8D00C4FCF8 /* IGSliders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B218548E228C0B8D00C4FCF8 /* IGSliders.swift */; };
+		B2185493228C245C00C4FCF8 /* EdgesFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2185492228C245C00C4FCF8 /* EdgesFramework.framework */; };
 		B2476D3B2276E6E600776352 /* IGSliders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2476D312276E6E600776352 /* IGSliders.framework */; };
 		B2476D402276E6E600776352 /* IGSlidersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2476D3F2276E6E600776352 /* IGSlidersTests.swift */; };
 		B2476D422276E6E600776352 /* IGSliders.h in Headers */ = {isa = PBXBuildFile; fileRef = B2476D342276E6E600776352 /* IGSliders.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -15,10 +17,10 @@
 		B2476DB22279879900776352 /* IGEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2476DB12279879900776352 /* IGEditView.swift */; };
 		B2476DB422798D5800776352 /* IGEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2476DB322798D5800776352 /* IGEditView.xib */; };
 		B2476DB62279AACB00776352 /* IGSlidersController InsertViewInto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2476DB52279AACB00776352 /* IGSlidersController InsertViewInto.swift */; };
-		B2AC397C227ACC6C006A61C0 /* IGSlidersView Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC397B227ACC6C006A61C0 /* IGSlidersView Axis.swift */; };
-		B2AC397E227ACCD4006A61C0 /* IGSlidersView Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC397D227ACCD4006A61C0 /* IGSlidersView Style.swift */; };
+		B2AC397C227ACC6C006A61C0 /* IGSlidersAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC397B227ACC6C006A61C0 /* IGSlidersAxis.swift */; };
+		B2AC397E227ACCD4006A61C0 /* IGSlidersStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC397D227ACCD4006A61C0 /* IGSlidersStyle.swift */; };
 		B2AC3981227AD280006A61C0 /* IGSlidersController readWriteDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC3980227AD280006A61C0 /* IGSlidersController readWriteDefaults.swift */; };
-		B2E675AC2288831800F1CCDE /* IGSlidersController + convertToEdges.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E675AB2288831800F1CCDE /* IGSlidersController + convertToEdges.swift */; };
+		B2E675AC2288831800F1CCDE /* IGSlidersController + coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E675AB2288831800F1CCDE /* IGSlidersController + coordinates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B218548E228C0B8D00C4FCF8 /* IGSliders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGSliders.swift; sourceTree = "<group>"; };
+		B2185492228C245C00C4FCF8 /* EdgesFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EdgesFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2476D312276E6E600776352 /* IGSliders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IGSliders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2476D342276E6E600776352 /* IGSliders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IGSliders.h; sourceTree = "<group>"; };
 		B2476D352276E6E600776352 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,11 +47,11 @@
 		B2476DB12279879900776352 /* IGEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGEditView.swift; sourceTree = "<group>"; };
 		B2476DB322798D5800776352 /* IGEditView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IGEditView.xib; sourceTree = "<group>"; };
 		B2476DB52279AACB00776352 /* IGSlidersController InsertViewInto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IGSlidersController InsertViewInto.swift"; sourceTree = "<group>"; };
-		B2AC397B227ACC6C006A61C0 /* IGSlidersView Axis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IGSlidersView Axis.swift"; sourceTree = "<group>"; };
-		B2AC397D227ACCD4006A61C0 /* IGSlidersView Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IGSlidersView Style.swift"; sourceTree = "<group>"; };
+		B2AC397B227ACC6C006A61C0 /* IGSlidersAxis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGSlidersAxis.swift; sourceTree = "<group>"; };
+		B2AC397D227ACCD4006A61C0 /* IGSlidersStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGSlidersStyle.swift; sourceTree = "<group>"; };
 		B2AC3980227AD280006A61C0 /* IGSlidersController readWriteDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IGSlidersController readWriteDefaults.swift"; sourceTree = "<group>"; };
 		B2AC3982227F7B73006A61C0 /* valuesArray.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = valuesArray.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		B2E675AB2288831800F1CCDE /* IGSlidersController + convertToEdges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IGSlidersController + convertToEdges.swift"; sourceTree = "<group>"; };
+		B2E675AB2288831800F1CCDE /* IGSlidersController + coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IGSlidersController + coordinates.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2185493228C245C00C4FCF8 /* EdgesFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,14 +74,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B218548D228B028200C4FCF8 /* IGSliders */ = {
+		B218548D228B028200C4FCF8 /* IGSlidersView */ = {
 			isa = PBXGroup;
 			children = (
 				B2476D9B22783A2900776352 /* IGSlidersView.swift */,
-				B2AC397B227ACC6C006A61C0 /* IGSlidersView Axis.swift */,
-				B2AC397D227ACCD4006A61C0 /* IGSlidersView Style.swift */,
 			);
-			name = IGSliders;
+			name = IGSlidersView;
+			sourceTree = "<group>";
+		};
+		B2185490228C0C8400C4FCF8 /* IGSlidersData */ = {
+			isa = PBXGroup;
+			children = (
+				B218548E228C0B8D00C4FCF8 /* IGSliders.swift */,
+				B2AC397B227ACC6C006A61C0 /* IGSlidersAxis.swift */,
+				B2AC397D227ACCD4006A61C0 /* IGSlidersStyle.swift */,
+			);
+			name = IGSlidersData;
+			sourceTree = "<group>";
+		};
+		B2185491228C245C00C4FCF8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B2185492228C245C00C4FCF8 /* EdgesFramework.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		B2476D272276E6E600776352 = {
@@ -85,6 +106,7 @@
 				B2476D332276E6E600776352 /* IGSliders */,
 				B2476D3E2276E6E600776352 /* IGSlidersTests */,
 				B2476D322276E6E600776352 /* Products */,
+				B2185491228C245C00C4FCF8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,10 +126,11 @@
 				B2476DA122783D0200776352 /* IGSlidersController.swift */,
 				B2476DB52279AACB00776352 /* IGSlidersController InsertViewInto.swift */,
 				B2AC3980227AD280006A61C0 /* IGSlidersController readWriteDefaults.swift */,
-				B2E675AB2288831800F1CCDE /* IGSlidersController + convertToEdges.swift */,
+				B2E675AB2288831800F1CCDE /* IGSlidersController + coordinates.swift */,
 				B2476DB12279879900776352 /* IGEditView.swift */,
+				B2185490228C0C8400C4FCF8 /* IGSlidersData */,
 				B2476D342276E6E600776352 /* IGSliders.h */,
-				B218548D228B028200C4FCF8 /* IGSliders */,
+				B218548D228B028200C4FCF8 /* IGSlidersView */,
 				B2476D352276E6E600776352 /* Info.plist */,
 				B2476DB322798D5800776352 /* IGEditView.xib */,
 			);
@@ -236,9 +259,10 @@
 				B2476DA222783D0200776352 /* IGSlidersController.swift in Sources */,
 				B2476D9C22783A2900776352 /* IGSlidersView.swift in Sources */,
 				B2476DB62279AACB00776352 /* IGSlidersController InsertViewInto.swift in Sources */,
-				B2AC397E227ACCD4006A61C0 /* IGSlidersView Style.swift in Sources */,
-				B2AC397C227ACC6C006A61C0 /* IGSlidersView Axis.swift in Sources */,
-				B2E675AC2288831800F1CCDE /* IGSlidersController + convertToEdges.swift in Sources */,
+				B2AC397E227ACCD4006A61C0 /* IGSlidersStyle.swift in Sources */,
+				B218548F228C0B8D00C4FCF8 /* IGSliders.swift in Sources */,
+				B2AC397C227ACC6C006A61C0 /* IGSlidersAxis.swift in Sources */,
+				B2E675AC2288831800F1CCDE /* IGSlidersController + coordinates.swift in Sources */,
 				B2AC3981227AD280006A61C0 /* IGSlidersController readWriteDefaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
