@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		B218548F228C0B8D00C4FCF8 /* IGSliders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B218548E228C0B8D00C4FCF8 /* IGSliders.swift */; };
 		B2185493228C245C00C4FCF8 /* EdgesFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2185492228C245C00C4FCF8 /* EdgesFramework.framework */; };
+		B2312D57228DDB7500355C7E /* IGSlidersController + Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2312D56228DDB7500355C7E /* IGSlidersController + Axis.swift */; };
+		B2312D59228DDD9E00355C7E /* IGSlidersController + Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2312D58228DDD9E00355C7E /* IGSlidersController + Style.swift */; };
+		B2312D5B228DE28200355C7E /* IGSlidersController + StyleValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2312D5A228DE28200355C7E /* IGSlidersController + StyleValues.swift */; };
 		B2476D3B2276E6E600776352 /* IGSliders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2476D312276E6E600776352 /* IGSliders.framework */; };
 		B2476D402276E6E600776352 /* IGSlidersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2476D3F2276E6E600776352 /* IGSlidersTests.swift */; };
 		B2476D422276E6E600776352 /* IGSliders.h in Headers */ = {isa = PBXBuildFile; fileRef = B2476D342276E6E600776352 /* IGSliders.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -36,6 +39,9 @@
 /* Begin PBXFileReference section */
 		B218548E228C0B8D00C4FCF8 /* IGSliders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGSliders.swift; sourceTree = "<group>"; };
 		B2185492228C245C00C4FCF8 /* EdgesFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EdgesFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2312D56228DDB7500355C7E /* IGSlidersController + Axis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IGSlidersController + Axis.swift"; sourceTree = "<group>"; };
+		B2312D58228DDD9E00355C7E /* IGSlidersController + Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IGSlidersController + Style.swift"; sourceTree = "<group>"; };
+		B2312D5A228DE28200355C7E /* IGSlidersController + StyleValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IGSlidersController + StyleValues.swift"; sourceTree = "<group>"; };
 		B2476D312276E6E600776352 /* IGSliders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IGSliders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2476D342276E6E600776352 /* IGSliders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IGSliders.h; sourceTree = "<group>"; };
 		B2476D352276E6E600776352 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -124,6 +130,9 @@
 			children = (
 				B2AC3982227F7B73006A61C0 /* valuesArray.playground */,
 				B2476DA122783D0200776352 /* IGSlidersController.swift */,
+				B2312D56228DDB7500355C7E /* IGSlidersController + Axis.swift */,
+				B2312D58228DDD9E00355C7E /* IGSlidersController + Style.swift */,
+				B2312D5A228DE28200355C7E /* IGSlidersController + StyleValues.swift */,
 				B2476DB52279AACB00776352 /* IGSlidersController InsertViewInto.swift */,
 				B2AC3980227AD280006A61C0 /* IGSlidersController readWriteDefaults.swift */,
 				B2E675AB2288831800F1CCDE /* IGSlidersController + coordinates.swift */,
@@ -259,8 +268,11 @@
 				B2476DA222783D0200776352 /* IGSlidersController.swift in Sources */,
 				B2476D9C22783A2900776352 /* IGSlidersView.swift in Sources */,
 				B2476DB62279AACB00776352 /* IGSlidersController InsertViewInto.swift in Sources */,
+				B2312D5B228DE28200355C7E /* IGSlidersController + StyleValues.swift in Sources */,
+				B2312D57228DDB7500355C7E /* IGSlidersController + Axis.swift in Sources */,
 				B2AC397E227ACCD4006A61C0 /* IGSlidersStyle.swift in Sources */,
 				B218548F228C0B8D00C4FCF8 /* IGSliders.swift in Sources */,
+				B2312D59228DDD9E00355C7E /* IGSlidersController + Style.swift in Sources */,
 				B2AC397C227ACC6C006A61C0 /* IGSlidersAxis.swift in Sources */,
 				B2E675AC2288831800F1CCDE /* IGSlidersController + coordinates.swift in Sources */,
 				B2AC3981227AD280006A61C0 /* IGSlidersController readWriteDefaults.swift in Sources */,
