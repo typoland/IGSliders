@@ -195,6 +195,7 @@
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             <connections>
+                                                                <action selector="setCurrentStyleValues:" target="-2" id="N6a-eY-Qgz"/>
                                                                 <binding destination="ueF-UI-Yzt" name="value" keyPath="selection.value" id="zuv-Lz-JQN">
                                                                     <dictionary key="options">
                                                                         <bool key="NSConditionallySetsEnabled" value="YES"/>
@@ -222,6 +223,7 @@
                                                         </tableHeaderCell>
                                                         <sliderCell key="dataCell" controlSize="mini" lineBreakMode="truncatingTail" continuous="YES" state="on" alignment="left" maxValue="1" tickMarkPosition="above" sliderType="linear" id="HBL-qd-i3T">
                                                             <connections>
+                                                                <action selector="setCurrentStyleValues:" target="-2" id="Elw-ic-dg0"/>
                                                                 <binding destination="ueF-UI-Yzt" name="value" keyPath="selection.value" id="EuP-Qd-6dc">
                                                                     <dictionary key="options">
                                                                         <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
@@ -244,6 +246,7 @@
                                                 <connections>
                                                     <binding destination="ueF-UI-Yzt" name="content" keyPath="arrangedObjects" id="7sa-1n-9bN"/>
                                                     <binding destination="ueF-UI-Yzt" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="7sa-1n-9bN" id="ti0-vx-vXP"/>
+                                                    <outlet property="delegate" destination="-2" id="5o6-7F-Bl4"/>
                                                 </connections>
                                             </tableView>
                                         </subviews>
@@ -430,7 +433,7 @@
             </subviews>
             <point key="canvasLocation" x="10.5" y="137"/>
         </customView>
-        <arrayController objectClassName="Value" automaticallyPreparesContent="YES" clearsFilterPredicateOnInsertion="NO" automaticallyRearrangesObjects="YES" id="ueF-UI-Yzt">
+        <arrayController objectClassName="Value" automaticallyPreparesContent="YES" avoidsEmptySelection="NO" clearsFilterPredicateOnInsertion="NO" automaticallyRearrangesObjects="YES" id="ueF-UI-Yzt">
             <connections>
                 <binding destination="-2" name="contentArray" keyPath="currentStyleValues" id="MNU-oJ-r6L">
                     <dictionary key="options">

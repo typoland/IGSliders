@@ -15,10 +15,11 @@ extension IGSlidersController {
             willSet { willChangeValue(for: \Value.value) }
             didSet { didChangeValue(for: \Value.value) }
         }
+        
         init (_ value:Double) {
             self.value = NSNumber(value:value)
-            
         }
+        
         override var description: String {
             return String(format: "%1.3f", value.floatValue)
         }
@@ -31,12 +32,12 @@ extension IGSlidersController {
             }
             return values.map {Value($0)}
         }
-        set {
-            print ("setting currentStyleValues", currentStyle, currentStyle?.egdesValues, newValue )
-            guard let style = currentStyle else {return}
-            print (newValue)
-            //.egdesValues = newValue.map {$0.doubleValue}
-        }
+//        set {
+//            print ("setting currentStyleValues", currentStyle, currentStyle?.egdesValues, newValue )
+//            guard let style = currentStyle else {return}
+//            print (newValue)
+//            //.egdesValues = newValue.map {$0.doubleValue}
+//        }
     }
     
     
@@ -44,5 +45,19 @@ extension IGSlidersController {
     @objc var selectedStyleValuesCount:Int {
         guard selectedAxisIndex > -1, selectedStyleIndex > -1 else {return -1}
         return sliders.axes[selectedAxisIndex].styles[selectedStyleIndex].egdesValues.count
+    }
+    
+    @IBAction func setCurrentStyleValues (_ sender:Any) {
+        //print ("setCurrentStyleValues", sender)
+        guard let table = sender as? NSTableView,
+        let value = table.selectedCell()?.doubleValue,
+        table.selectedRow >= 0 else   {
+                return
+        }
+        willChangeValue(for: \IGSlidersController.currentStyleValues)
+        currentStyle?.egdesValues[table.selectedRow] = value
+        didChangeValue(for: \IGSlidersController.currentStyleValues)
+        //print (currentStyle?.egdesValues)
+        notifyStylesChange()
     }
 }

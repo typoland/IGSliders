@@ -36,14 +36,14 @@ public class IGSlidersController: NSViewController, NSTableViewDataSource, NSTab
     //            print ("nopr")
     //            return}
     //
-            selectedStyleValuesController.addObserver(self, forKeyPath: "selectedObjects", options: [.old, .new], context: nil)
-            print ("OK", selectedStyleValuesController.arrangedObjects)
-        }
+//            selectedStyleValuesController.addObserver(self, forKeyPath: "selectedObjects", options: [.old, .new], context: nil)
+//            print ("OK", selectedStyleValuesController.arrangedObjects)
+       }
     
-       override public func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-            print ("something changed \(change), \(object)")
-        print ((object as? NSArrayController)?.arrangedObjects)
-      }
+//       override public func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+//            print ("something changed \(change), \(object)")
+//        print ((object as? NSArrayController)?.arrangedObjects)
+//      }
     
     //    public func tableViewSelectionDidChange(_ notification:Notification) {
     //        print ("change \(notification.object)")
