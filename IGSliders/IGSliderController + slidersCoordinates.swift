@@ -8,12 +8,11 @@
 
 import Foundation
 
-extension IGSlidersController {
+public extension IGSlidersController {
     var slidersCoordinates:[[[(styleName:String, value:Double)]]] {
         
         //Very error prone!
         let edgesNr = sliders.axes[0].styles[0].egdesValues.count
-        print ("°", edgesNr )
         let edgesArray = Array(repeating: [(styleName:String, value:Double)](), count: edgesNr)
         var result : [[[(styleName:String, value:Double)]]] =  Array(repeating: edgesArray, count: sliders.axes.count)
         for axisNr in 0 ..< sliders.axes.count {
@@ -25,7 +24,6 @@ extension IGSlidersController {
                 }
             }
         }
-        print (result)
         return result
     }
 }
