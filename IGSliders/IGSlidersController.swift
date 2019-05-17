@@ -201,7 +201,7 @@ public class IGSlidersController: NSViewController, NSTableViewDataSource, NSTab
     func notifyStylesChange() {
         NotificationCenter.default.post(
             name: Notification.Name.IGSlidersControllerStylesChanged,
-            object: coordinates(),
+            object: (coordinates: coordinates(), sliders:slidersCoordinates),
             userInfo: nil)
     }
     
