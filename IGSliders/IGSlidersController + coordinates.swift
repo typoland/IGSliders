@@ -13,7 +13,7 @@ extension IGSlidersController {
     
     typealias EFStyle = EdgesFramework.MultidimensionalStyle
     
-    public func coordinates() -> [(name: String, values:[Double])] {
+    public var instances: [(name: String, values:[Double])] {
 
         var result = [EFStyle]()
 

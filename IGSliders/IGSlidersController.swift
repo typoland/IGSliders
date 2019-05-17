@@ -164,7 +164,7 @@ public class IGSlidersController: NSViewController, NSTableViewDataSource, NSTab
             didChangeValue(for: \IGSlidersController.canAddStyle)
             didChangeValue(for: \IGSlidersController.selectedStyleName)
             didChangeValue(for: \IGSlidersController.selectedStyleValuesCount)
-            //coordinates().forEach  { print ("•", $0)}
+            //instances().forEach  { print ("•", $0)}
             
         }
     }
@@ -201,7 +201,7 @@ public class IGSlidersController: NSViewController, NSTableViewDataSource, NSTab
     func notifyStylesChange() {
         NotificationCenter.default.post(
             name: Notification.Name.IGSlidersControllerStylesChanged,
-            object: (coordinates: coordinates(), sliders:slidersCoordinates),
+            object: (coordinates: instances, sliders:slidersCoordinates),
             userInfo: nil)
     }
     
